@@ -1,0 +1,17 @@
+<button mat-button>
+  <span class="font-bold text-lg"><a routerLink="/">Home</a></span>
+</button>
+<button mat-button [matMenuTriggerFor]="additional">
+  <span class="font-bold text-lg">Additional INFO </span>&#x25BC;
+</button>
+<mat-menu #additional="matMenu">
+  <button mat-menu-item><a routerLink="/course">Course</a></button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="student">
+  <span class="font-bold text-lg">Student Profiles </span>&#x25BC;
+</button>
+<mat-menu #student="matMenu">
+  <button mat-menu-item>
+    <a routerLink="/students">Student Profile List</a>
+  </button>
+</mat-menu>
