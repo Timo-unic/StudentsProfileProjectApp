@@ -11,4 +11,5 @@ import { NavbarComponent } from "./component/navbar/navbar.component";
 })
 export class AppComponent {
   title = 'Student Profile';
+  
 }

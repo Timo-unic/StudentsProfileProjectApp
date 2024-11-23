@@ -1,1 +1,7 @@
-<p>students-page works!</p>
+<p *ngIf="loading" class="text-center text-lg">Loading...</p>
+<div>
+  <app-students
+    *ngFor="let student of students"
+    [student]="student"
+  ></app-students>
+</div>

@@ -1,4 +1,4 @@
-export interface StudentProfile {
+export interface IStudentProfile {
     id: string;
     firstName: string;
     lastName: string;
@@ -7,7 +7,7 @@ export interface StudentProfile {
     description: string;
     age: number;
     image: string;
-    dateOfBirth: Date;
+    dateOfBirth: string;
     isGraduated: boolean
     isProfileVisible: boolean;
     additionalInfo: string;

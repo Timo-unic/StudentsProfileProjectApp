@@ -1,4 +1,4 @@
-export interface AddStudentProfile {
+export interface IAddStudentProfile {
     firstName: string;
     lastName: string;
     studentLogin: string;
