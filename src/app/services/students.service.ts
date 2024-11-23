@@ -11,6 +11,6 @@ export class StudentsService {
   constructor(private http: HttpClient) { }
 
   getAllStudentProfiles(): Observable<IStudentProfile[]>{
-    return this.http.get<IStudentProfile[]>('https://localhost:44317/api/StudentProfile/students'); // Replace with your API endpoint
+    return this.http.get<IStudentProfile[]>('https://localhost:7099/api/StudentProfile/students'); // Replace with your API endpoint
   }
 }
