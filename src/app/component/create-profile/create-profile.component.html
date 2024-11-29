@@ -1,0 +1,61 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <label for="name">First Name</label>
+  <input
+    type="text"
+    id="name"
+    placeholder="Enter Your First Name"
+    class="w-full px-4 py-2 mb-2"
+    formControlName="name"
+    appFocus
+  />
+  <label for="surname">Last Name</label>
+  <input
+    type="text"
+    id="surname"
+    placeholder="Enter Your Last Name"
+    class="w-full px-4 py-2 mb-2"
+    formControlName="surname"
+  />
+  <label for="login">Student Login</label>
+  <input
+    type="text"
+    id="login"
+    placeholder="Enter Your Login"
+    class="w-full px-4 py-2 mb-2"
+    formControlName="login"
+  />
+  <label for="cardnumber">Student Card Number</label>
+  <input
+    type="text"
+    id="cardnumber"
+    placeholder="Enter Your Card Number"
+    class="w-full px-4 py-2 mb-2"
+    formControlName="cardnumber"
+  />
+  <label for="description">Description</label>
+  <input
+    type="text"
+    id="description"
+    placeholder="Enter text about Yourself"
+    class="w-full px-4 py-2 mb-2"
+    formControlName="description"
+  />
+  <label for="age">Your Age</label>
+  <input
+    type="number"
+    name="age"
+    id="age"
+    placeholder="Enter Your Age"
+    class="w-full px-4 py-2 mb-2"
+    formControlName="age"
+  />
+  <!-- <label for="birthday">Your date of Birth</label>
+  <input
+    type="date"
+    name="birthday"
+    id="birthday"
+    class="w-full px-4 py-2 mb-2"
+    formControlName="birthday"
+  /> -->
+  <button type="submit" mat-button class="w-full flex">Create</button>
+</form>

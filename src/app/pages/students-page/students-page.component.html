@@ -1,7 +1,33 @@
-<p *ngIf="loading" class="text-center text-lg">Loading...</p>
 <div>
-  <app-students
-    *ngFor="let student of students"
-    [student]="student"
-  ></app-students>
+  <div class="flex justify-between mb-3 fixed top-14 right-10 z-[100]">
+    <div class="flex px-4">
+      <input
+        type="text"
+        class="border-2 rounded-md mb-2 px-4 py-2 w-60"
+        placeholder="Filter Last Name ..."
+        [(ngModel)]="term"
+      />
+    </div>
+    <div class="flex">
+      <mat-dialog-actions align-text="end"
+        ><button mat-raised-button (click)="modalService.open()">
+          Add Student Profile
+        </button></mat-dialog-actions
+      >
+    </div>
+  </div>
+  <p *ngIf="loading" class="text-center text-lg">Loading...</p>
+  <div>
+    <!-- *ngIf="studentService.students" -->
+    <app-students
+      *ngFor="let student of students | filterStudents : term"
+      [student]="student"
+    ></app-students>
+  </div>
+  <app-modal
+    *ngIf="modalService.isVisible$ | async"
+    modalTitle="Add Student Profile"
+  >
+    <app-create-profile></app-create-profile>
+  </app-modal>
 </div>

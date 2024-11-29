@@ -13,7 +13,7 @@ export const students: IStudentProfile[] = [
       "dateOfBirth": "1988-04-27T08:50:50.043",
       "isGraduated": false,
       "isProfileVisible": true,
-      "additionalInfo": ''
+      "additionalInfo": 'mbmbmb'
     },
     {
       "id": "a71b0dc3-5af0-4c11-11c9-08dc6b645b02",
