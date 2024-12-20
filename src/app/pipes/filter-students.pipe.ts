@@ -7,6 +7,7 @@ import { IStudentProfile } from '../models/student-profile';
 export class FilterStudentsPipe implements PipeTransform {
 
   transform(students: IStudentProfile[], search: string): IStudentProfile[] {
+    if (search.length === 0) return students;
     return students.filter(student => student.lastName.toLowerCase().includes(search.toLowerCase()));
   }
 

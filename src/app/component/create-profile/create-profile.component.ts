@@ -15,41 +15,52 @@ import { ModalService } from '../../services/modal.service';
 })
 export class CreateProfileComponent implements OnInit {
 
-  constructor(private studentService: StudentsService, private modalService: ModalService) { }
+  constructor(private studentsService: StudentsService, private modalService: ModalService) { }
 
   form = new FormGroup({
-    name: new FormControl<string>('',[Validators.required]),
-    surname: new FormControl<string>('', [Validators.required]),
-    login: new FormControl<string>('', [Validators.required]),
-    cardnumber: new FormControl<string>('', [Validators.required]),
-    description: new FormControl<string>('', [Validators.required]),
-    age: new FormControl<number>(0, [Validators.required]),
-    dateOfBirth: new FormControl<Date>(new Date(), [Validators.required]), 
+    firstName: new FormControl<string>('',Validators.required),
+    lastName: new FormControl<string>('', Validators.required),
+    studentLogin: new FormControl<string>('', Validators.required),
+    description: new FormControl<string>(''),
+    dateOfBirth: new FormControl<Date>( new Date()), 
   })
+
+  get firstName(){
+    return this.form.controls.firstName as FormControl;
+  }
+
+  get lastName(){
+    return this.form.controls.lastName as FormControl;
+  }
+
+  get studentLogin(){
+    return this.form.controls.studentLogin as FormControl;
+  }
   ngOnInit(): void {
     
   }
 
   submit(): void {
     console.log(this.form.value);
-  //   this.studentService.createStudentProfile(
-  //   {
-  //     id: '',
-  //     firstName: this.form.value.name as string,
-  //     lastName: this.form.value.surname as string,
-  //     studentLogin: this.form.value.login as string,
-  //     studentCardNumber: this.form.value.cardnumber as string,
-  //     description: this.form.value.description as string,
-  //     age: this.form.value.age as number,
-  //     image: '',
-  //     dateOfBirth: '',
-  //     isGraduated: false,
-  //     isProfileVisible: false,
-  //     additionalInfo: ''
-  //   }
-  // ).subscribe(() => {
-  //   this.modalService.close();
-  // })
+    this.studentsService.createStudentProfile(
+    {
+      firstName: this.form.value.firstName as string,
+      lastName: this.form.value.lastName as string,
+      studentLogin: this.form.value.studentLogin as string,
+      description: this.form.value.description as string,
+      dateOfBirth: this.form.value.dateOfBirth as Date
+    }
+  ).subscribe({
+    next: () => {
+      console.log('This was successful!');
+      this.modalService.close();
+    },
+    error: (err) => {
+      console.error('There was an error!', err);
+    }
+  })
   }
 
 }
+
+// subscribe({next: (response) => {console.log('This was successful!');this.modalService.close();}})

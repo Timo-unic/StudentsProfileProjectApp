@@ -13,7 +13,17 @@
     <p>Age:{{ student.age }}</p>
     <p>Date of Birth:{{ student.dateOfBirth }}</p></mat-card-content
   >
-  <mat-card-actions *ngIf="student.additionalInfo !== ''" align="start">
-    <button mat-button>More Info</button>
+  <!-- // realised dynamic value - 'More Info' *ngIf="student.additionalInfo !== ''" -->
+  <mat-card-actions align="start">
+    <div *ngIf="student.additionalInfo !== null">
+      <button mat-button>More Info</button>
+    </div>
+  </mat-card-actions>
+  <mat-card-actions align="end">
+    <div>
+      <button mat-button (click)="removeStudentCard(student)">
+        Remove card
+      </button>
+    </div>
   </mat-card-actions>
 </mat-card>

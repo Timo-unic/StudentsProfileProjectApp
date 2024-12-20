@@ -1,33 +1,31 @@
-<div>
-  <div class="flex justify-between mb-3 fixed top-14 right-10 z-[100]">
-    <div class="flex px-4">
-      <input
-        type="text"
-        class="border-2 rounded-md mb-2 px-4 py-2 w-60"
-        placeholder="Filter Last Name ..."
-        [(ngModel)]="term"
-      />
-    </div>
-    <div class="flex">
-      <mat-dialog-actions align-text="end"
-        ><button mat-raised-button (click)="modalService.open()">
-          Add Student Profile
-        </button></mat-dialog-actions
-      >
-    </div>
+<div class="flex justify-between mb-3 fixed top-14 right-10 z-[100]">
+  <div class="flex px-4">
+    <mat-form-field appearance="outline">
+      <mat-label>Filter Last Name ...</mat-label>
+      <input matInput placeholder="enter letters" [(ngModel)]="term" />
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
   </div>
-  <p *ngIf="loading" class="text-center text-lg">Loading...</p>
-  <div>
-    <!-- *ngIf="studentService.students" -->
-    <app-students
-      *ngFor="let student of students | filterStudents : term"
-      [student]="student"
-    ></app-students>
+  <div class="flex">
+    <mat-dialog-actions align-text="end"
+      ><button mat-raised-button (click)="modalService.open()">
+        Add Student Profile
+      </button></mat-dialog-actions
+    >
   </div>
-  <app-modal
-    *ngIf="modalService.isVisible$ | async"
-    modalTitle="Add Student Profile"
-  >
-    <app-create-profile></app-create-profile>
-  </app-modal>
 </div>
+<p *ngIf="loading" class="text-center text-lg">Loading...</p>
+<div *ngIf="studentsService.students">
+  <app-students
+    *ngFor="let student of studentsService.students | filterStudents : term"
+    [student]="student"
+  ></app-students>
+</div>
+
+<!-- Modal for adding a new student profile -->
+<app-modal
+  *ngIf="modalService.isVisible$ | async"
+  modalTitle="Add Student Profile"
+>
+  <app-create-profile></app-create-profile>
+</app-modal>

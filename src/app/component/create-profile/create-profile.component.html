@@ -1,61 +1,69 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
-  <label for="name">First Name</label>
+  <label for="firstName">First Name</label>
   <input
     type="text"
-    id="name"
+    id="firstName"
+    name="firstName"
     placeholder="Enter Your First Name"
     class="w-full px-4 py-2 mb-2"
-    formControlName="name"
+    formControlName="firstName"
     appFocus
   />
-  <label for="surname">Last Name</label>
+  <p
+    class="text-red-600 font-thin text-sm"
+    *ngIf="firstName.errors && firstName.touched"
+  >
+    This field is required
+  </p>
+  <label for="lastName">Last Name</label>
   <input
     type="text"
-    id="surname"
+    id="lastName"
+    name="lastName"
     placeholder="Enter Your Last Name"
     class="w-full px-4 py-2 mb-2"
-    formControlName="surname"
+    formControlName="lastName"
   />
-  <label for="login">Student Login</label>
+  <p
+    class="text-red-600 font-thin text-sm"
+    *ngIf="lastName.errors && lastName.touched"
+  >
+    This field is required
+  </p>
+  <label for="studentLogin">Student Login</label>
   <input
     type="text"
-    id="login"
+    id="studentLogin"
+    name="studentLogin"
     placeholder="Enter Your Login"
     class="w-full px-4 py-2 mb-2"
-    formControlName="login"
+    formControlName="studentLogin"
   />
-  <label for="cardnumber">Student Card Number</label>
-  <input
-    type="text"
-    id="cardnumber"
-    placeholder="Enter Your Card Number"
-    class="w-full px-4 py-2 mb-2"
-    formControlName="cardnumber"
-  />
+  <p
+    class="text-red-600 font-thin text-sm"
+    *ngIf="studentLogin.errors && studentLogin.touched"
+  >
+    This field is required
+  </p>
   <label for="description">Description</label>
   <input
     type="text"
     id="description"
+    name="description"
     placeholder="Enter text about Yourself"
     class="w-full px-4 py-2 mb-2"
     formControlName="description"
   />
-  <label for="age">Your Age</label>
+  <label for="dateOfBirth">Your date of Birth</label>
   <input
-    type="number"
-    name="age"
-    id="age"
-    placeholder="Enter Your Age"
+    type="datetime"
+    id="dateOfBirth"
+    name="dateOfBirth"
     class="w-full px-4 py-2 mb-2"
-    formControlName="age"
+    formControlName="dateOfBirth"
   />
-  <!-- <label for="birthday">Your date of Birth</label>
-  <input
-    type="date"
-    name="birthday"
-    id="birthday"
-    class="w-full px-4 py-2 mb-2"
-    formControlName="birthday"
-  /> -->
+  <p class="text-red-600 font-thin text-sm">
+    Enter the date of Birth in the format MM-DD-YYYY
+  </p>
   <button type="submit" mat-button class="w-full flex">Create</button>
 </form>
