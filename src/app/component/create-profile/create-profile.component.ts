@@ -41,7 +41,7 @@ export class CreateProfileComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.form.value);
+    // console.log(this.form.value);
     this.studentsService.createStudentProfile(
     {
       firstName: this.form.value.firstName as string,
