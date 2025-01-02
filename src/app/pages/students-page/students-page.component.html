@@ -1,21 +1,26 @@
-<div class="flex justify-between mb-3 fixed top-14 right-10 z-[100]">
-  <div class="flex px-4">
-    <mat-form-field appearance="outline">
-      <mat-label>Filter Last Name ...</mat-label>
-      <input matInput placeholder="enter letters" [(ngModel)]="term" />
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    </mat-form-field>
-  </div>
-  <div class="flex">
-    <mat-dialog-actions align-text="end"
-      ><button mat-raised-button (click)="modalService.open()">
-        Add Student Profile
-      </button></mat-dialog-actions
-    >
+<div class="mb-16">
+  <div class="flex justify-between fixed top-14 right-10 z-[100]">
+    <div class="px-10">
+      <mat-form-field appearance="outline">
+        <mat-label>Filter Last Name ...</mat-label>
+        <input matInput placeholder="enter letters" [(ngModel)]="term" />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="px-10">
+      <mat-dialog-actions align-text="end"
+        ><button mat-raised-button (click)="modalService.open()">
+          Add Student Profile
+        </button></mat-dialog-actions
+      >
+    </div>
   </div>
 </div>
 <p *ngIf="loading" class="text-center text-lg">Loading...</p>
-<div *ngIf="studentsService.students">
+<div
+  *ngIf="studentsService.students"
+  class="grid grid-cols-1 md:grid-cols-2 gap-4 px-5"
+>
   <app-students
     *ngFor="let student of studentsService.students | filterStudents : term"
     [student]="student"

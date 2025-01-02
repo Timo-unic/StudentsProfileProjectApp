@@ -12,6 +12,7 @@ import { FilterStudentsPipe } from "../../pipes/filter-students.pipe";
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import { students } from '../../data/students';
 
 
 
@@ -38,7 +39,11 @@ export class StudentsPageComponent implements OnInit {
     // this.students$ = this.studentsService.getAllStudentProfiles().pipe(tap(() => this.loading = false));
 
 
-    this.studentsService.getAllStudentProfiles().subscribe((res) =>{console.log(res); this.loading = false;})
+    this.studentsService.getAllStudentProfiles().subscribe(students =>{
+      this.studentsService.students = students; 
+      console.log(students); 
+      this.loading = false;
+    })
   }
 }
 

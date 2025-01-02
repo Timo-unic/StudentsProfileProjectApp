@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardAppearance, MatCardModule} from '@angular/material/card';
 import { StudentsService } from '../../services/students.service';
-import { students } from '../../data/students';
+
 
 @Component({
   selector: 'app-students',

@@ -1,4 +1,4 @@
-export interface ICourseProfale {
+export interface ICourseProfile {
     id?: string;
     groupName:string;
     titleOfCourse: string;
