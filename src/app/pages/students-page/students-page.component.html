@@ -1,0 +1,36 @@
+<div class="mb-16">
+  <div class="flex justify-between fixed top-14 right-10 z-[1000]">
+    <div class="px-10">
+      <mat-form-field appearance="fill">
+        <mat-label>Filter Last Name ...</mat-label>
+        <input matInput placeholder="enter letters" [(ngModel)]="term" />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="px-10">
+      <mat-dialog-actions align-text="end"
+        ><button mat-raised-button (click)="modalService.open()">
+          Add Student Profile
+        </button></mat-dialog-actions
+      >
+    </div>
+  </div>
+</div>
+<p *ngIf="loading" class="text-center text-lg">Loading...</p>
+<div
+  *ngIf="studentsService.students"
+  class="grid grid-cols-1 md:grid-cols-2 gap-4 px-5"
+>
+  <app-students
+    *ngFor="let student of studentsService.students | filterStudents : term"
+    [student]="student"
+  ></app-students>
+</div>
+
+<!-- Modal for adding a new student profile -->
+<app-modal
+  *ngIf="modalService.isVisible$ | async"
+  modalTitle="Add Student Profile"
+>
+  <app-create-profile></app-create-profile>
+</app-modal>

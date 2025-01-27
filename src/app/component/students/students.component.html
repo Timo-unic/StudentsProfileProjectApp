@@ -1,0 +1,29 @@
+<mat-card class="student-card" appearance="raised">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">
+      <img [src]="student.image" [alt]="student.lastName" />
+    </div>
+
+    <mat-card-title>
+      {{ student.firstName }} {{ student.lastName }}</mat-card-title
+    >
+    <mat-card-subtitle>{{ student.description }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Age:{{ student.age }}</p>
+    <p>Date of Birth:{{ student.dateOfBirth }}</p></mat-card-content
+  >
+  <!-- // realised dynamic value - 'More Info' *ngIf="student.additionalInfo !== ''" -->
+  <mat-card-actions align="start">
+    <div *ngIf="student.additionalInfo !== null">
+      <button mat-button>More Info</button>
+    </div>
+  </mat-card-actions>
+  <mat-card-actions align="end">
+    <div>
+      <button mat-button (click)="removeStudentCard(student)">
+        Remove card
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

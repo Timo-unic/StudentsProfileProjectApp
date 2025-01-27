@@ -1,0 +1,13 @@
+<div
+  class="bg-black/50 fixed top-0 bottom-0 left-0 right-0 z-[1000]"
+  (click)="modalService.close()"
+></div>
+
+<div
+  class="w-[500px] absolute top-20 p-4 bg-white rounded-md left-1/2 -translate-x-1/2 z-[2000]"
+>
+  <h1 class="text-center mb-4 text-lg">{{ modalTitle }}</h1>
+  <!-- //realised dynamic value - 'Add Student Profile' -->
+
+  <ng-content></ng-content>
+</div>

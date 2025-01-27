@@ -1,0 +1,69 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <label for="firstName">First Name</label>
+  <input
+    type="text"
+    id="firstName"
+    name="firstName"
+    placeholder="Enter Your First Name"
+    class="w-full px-4 py-2 mb-2"
+    formControlName="firstName"
+    appFocus
+  />
+  <p
+    class="text-red-600 font-thin text-sm"
+    *ngIf="firstName.errors && firstName.touched"
+  >
+    This field is required
+  </p>
+  <label for="lastName">Last Name</label>
+  <input
+    type="text"
+    id="lastName"
+    name="lastName"
+    placeholder="Enter Your Last Name"
+    class="w-full px-4 py-2 mb-2"
+    formControlName="lastName"
+  />
+  <p
+    class="text-red-600 font-thin text-sm"
+    *ngIf="lastName.errors && lastName.touched"
+  >
+    This field is required
+  </p>
+  <label for="studentLogin">Student Login</label>
+  <input
+    type="text"
+    id="studentLogin"
+    name="studentLogin"
+    placeholder="Enter Your Login"
+    class="w-full px-4 py-2 mb-2"
+    formControlName="studentLogin"
+  />
+  <p
+    class="text-red-600 font-thin text-sm"
+    *ngIf="studentLogin.errors && studentLogin.touched"
+  >
+    This field is required
+  </p>
+  <label for="description">Description</label>
+  <input
+    type="text"
+    id="description"
+    name="description"
+    placeholder="Enter text about Yourself"
+    class="w-full px-4 py-2 mb-2"
+    formControlName="description"
+  />
+  <label for="dateOfBirth">Your date of Birth</label>
+  <input
+    type="datetime"
+    id="dateOfBirth"
+    name="dateOfBirth"
+    class="w-full px-4 py-2 mb-2"
+    formControlName="dateOfBirth"
+  />
+  <p class="text-red-600 font-thin text-sm">
+    Enter the date of Birth in the format MM-DD-YYYY
+  </p>
+  <button type="submit" mat-button class="w-full flex">Create</button>
+</form>
